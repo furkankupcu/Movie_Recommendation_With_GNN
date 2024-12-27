@@ -4,22 +4,34 @@ This repository contains a PyTorch implementation of a movie recommendation syst
 
 ---
 
-## Features
-- **Graph Neural Network (GNN)**: Utilizes GCNConv layers for graph-based learning.
-- **Edge Attributes**: Encodes user ratings as edge weights.
-- **Batch Normalization**: Improves convergence and stability.
-- **Dropout Regularization**: Reduces overfitting.
-- **Huber Loss**: Handles outlier ratings effectively.
-- **Early Stopping**: Avoids overfitting by monitoring validation metrics.
-- **Learning Rate Scheduler**: Adjusts learning rate based on performance.
-
----
-
 ## Requirements
 To run this project, install the following dependencies:
 - Python 3.8+
+- PySpark
 - PyTorch
 - PyTorch Geometric
+
+## Libraries Used
+
+### **PySpark** (Big Data Processing)
+- **`pyspark.sql.SparkSession`**: Used to create a Spark session.
+- **`pyspark.sql.functions`**: Includes utility functions for data manipulation, such as:
+  - **`col`**: Specify a column in a DataFrame.
+  - **`lit`**: Add constant values to a column.
+  - **`isnan`**: Check for NaN values.
+  - **`when`**: Create conditional expressions.
+  - **`count`**: Count the number of elements in a column.
+
+### **PyTorch** (Deep Learning)
+- **`torch`**: Core PyTorch library for tensor operations.
+- **`torch_geometric.data.Data`**: Stores graph data structures.
+- **`torch_geometric.nn.GCNConv`**: Implements Graph Convolutional Network (GCN) layers.
+
+### **PyTorch Neural Network Modules**
+- **`torch.nn.Linear`**: Fully connected layer.
+- **`torch.nn.ReLU`**: ReLU activation function.
+- **`torch.nn.Dropout`**: Applies dropout regularization to prevent overfitting.
+- **`torch.nn.BatchNorm1d`**: Batch normalization for stable and faster training.
 
 ## Dataset
 This implementation expects a dataset in the form of a DataFrame with the following columns:
